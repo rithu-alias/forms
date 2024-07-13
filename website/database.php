@@ -1,19 +1,9 @@
 <?php
-
-$db_server="localhost";
-$db_user="root";
-$db_pass="";
-$db_name="businessdb";
-$conn="";
-try{
-$conn=mysqli_connect($db_server,$db_user,$db_pass,$db_name);
+try {
+    $conn = new PDO('mysql:host=127.0.0.1;dbname=businessdb', 'root', '');
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    die();
 }
-catch(mysqli_sql_exception)
-
-{
-echo "couldnot connect";
-}
-
-
-
 ?>
