@@ -14,7 +14,7 @@
         echo "<p><center>" . htmlspecialchars($_GET['message']) . "</center></p>";
     }
     ?>
-    <form action="new.php" method="post">
+    <form action="process.php" method="post">
       Username:<br>
         <input name="username" type="text" required><br>
         Password: <br>
