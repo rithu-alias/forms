@@ -1,5 +1,8 @@
-
 <?php
+namespace App\Database;
+use PDO;
+use PDOException;
+
 class Database {
     private $host = '127.0.0.1';
     private $db = 'businessdb';
@@ -30,3 +33,6 @@ class Database {
     }
 }
 ?>
+
+
+
