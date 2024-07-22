@@ -1,4 +1,7 @@
 <?php
+namespace App\User;
+use PDO;
+use PDOException;
 class User {
     private $pdo;
 
@@ -18,11 +21,24 @@ class User {
 
             return "You have registered successfully";
         } catch (PDOException $e) {
-            if ($e->getCode() == 23000) { // Integrity constraint violation (duplicate entry)
+            if ($e->getCode() == 23000) { 
                 return "The username is already taken";
             } else {
                 return "Error: " . $e->getMessage();
             }
+        }
+    }
+    public function getUsers()
+    {
+        try{
+            $sql = "SELECT user from users";
+            $stmt=$this->pdo->query($sql);
+            return $stmt->fetchALL();
+
+        }
+        catch (PDOException $e)
+        {
+            return [];
         }
     }
 }
